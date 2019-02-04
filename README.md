@@ -1,4 +1,4 @@
-s# springboot
+# springboot
 
 # 1. 스프링부트 소개 
 - 스프링 부트는 제품수준의 스프링 기반의 application을 만들때 쉽게 만들 수 있음.
@@ -139,3 +139,152 @@ HTTP2 제약사항
 2. 자동 설정
 3. 내장 웹 서버
 ```
+
+# 3. 스프링부트 활용
+
+핵심 기능과 각종 기술 연동 2가지 파트로 나눠서 진행한다.
+
+스프링부트 핵심 기능
+- SpringApplication
+- 외부 설정
+- 프로파일
+- 로깅
+- 테스트
+- Spring-Dev-Tools
+
+각종 기술 연동
+- Web Mvc
+- 스프링 데이터
+- 스프링 시큐리티
+- REST API 클라이언트
+- 다루지 않은 내용들
+
+```
+SpringApplication 
+
+- Customizng을 하기 위해선 instance 생성 ( new SpringApplication())
+- 로그 레벨을 Debug로 하면 어떠한 자동 설정이 되어 있는지(안되어 있는지) 알 수 있음(VM option : -Ddebug)
+- 배너 
+  -> resources 경로에 banner.txt(jpg png gif)
+  -> 다른 경로일 경우 spring.properties에 spring.banner.location 값 설정
+- SpringApplicationBuilder 객체로 Builder 패턴 사용 가능.
+
+SpringApplication 2부
+
+Event 등록(EventListener 등록)
+- 이벤트는 다양한 시점이 있음
+- Application Context 생성 시점에 따라 등록 방법이 다름.
+- Application Context가 생성 된 후의 발생하는 이벤트들은 Bean으로 등록하면 동작한다. (생성 전에 발생하는 이벤트는 직접 등록 해줘야함)
+
+WebApplicationType 설정
+
+Application Arguments
+- ApplicationArguments를 Bean으로 등록해주니 가져다 사용하면 됨.(JVM 옵션이 아님)
+
+애플리케이션 실행한 뒤 뭔가 실행하고 싶을 때
+- ApplicationRunner (추천) 또는 CommandLineRunner
+- @Order로 순서 지정 가능
+```
+
+```
+# 외부 설정
+
+사용 할 수 있는 외부 설정
+- properties
+- YAML
+- 환경 변수
+- 커맨드 라인 아규먼트
+
+프로퍼티 우선 순위
+1. 유저 홈 디렉토리에 있는 spring-boot-dev-tools.properties
+2. 테스트에 있는 @TestPropertySource
+3. @SpringBootTest 애노테이션의 properties 애트리뷰트
+4. 커맨드 라인 아규먼트
+5. SPRING_APPLICATION_JSON (환경 변수 또는 시스템 프로티) 에 들어있는 프로퍼티
+6. ServletConfig 파라미터
+7. ServletContext 파라미터
+8. java:comp/env JNDI 애트리뷰트
+9. System.getProperties() 자바 시스템 프로퍼티
+10. OS 환경 변수
+11. RandomValuePropertySource
+12. JAR 밖에 있는 특정 프로파일용 application properties
+13. JAR 안에 있는 특정 프로파일용 application properties
+14. JAR 밖에 있는 application properties
+15. JAR 안에 있는 application properties
+16. @PropertySource
+17. 기본 프로퍼티 (SpringApplication.setDefaultProperties)
+
+# 외부 설정 2부
+
+여러 프로퍼티를 묶어서 읽어 올 수 있음
+빈으로 등록해서 다른빈에 주입 가능
+- @EnableCongifurationProperties
+- @Component
+- @Bean
+
+융통성 있는 바인딩
+- context-path, context_path, contextPath, CONTEXTPATH 모두 바인딩 해줌
+
+프로퍼티 타입 컨버전
+- @DurationUnit
+
+프로퍼티 값 검증
+- @Validated
+- @JSR-303 (@NotNull, @NotEmpty ...)
+
+@Value보다는 @ConfigurationProperties을 쓰는것이 더 낫다
+```
+
+```
+프로파일
+
+@Profile 애너테이션은 어디에??
+- @Configuration, @Component
+
+어떤 프로파일을 활성화?
+- spring.profiles.active(properties, JVM, application arguments)
+
+프로파일용 프로퍼티 파일도 가능
+- application-${profile}.properties
+
+spring.profiles.include로 프로파일 추가 가능
+```
+
+```
+# 스프링부트 로깅
+
+로깅 퍼사드 vs 로거
+- Commons Logging 사용, SLF4j (로거 API들을 추상화해놓은 Interface들) (로깅 퍼사드)
+- JUL, Log4j2, Logback (퍼사드를 사용하여 코딩하면 로깅 라이브러리를 바꿔 사용 할 수 있음)
+- 스프링부트는 기본적으로 Commons Logging을 사용
+
+스프링부트 5 로거 변경사항
+- Spring-JCL
+- Commons Logging -> SLF4j or Log4j2
+- maven, gradle에 exclude안해도 됨.
+
+스프링부트 로깅
+- 기본 포맷
+- --debug(일부 핵심 라이브러리만 디버깅 모드) -> embedded container, hibernate, spring boot
+- --trace(전부 다 디버깅 모드로)
+- 컬러출력 : spring.output.ansi.enabled
+- 파일출력 : loggin.file or logging.path
+- 로그 레벨 조정 : logging.level.패키지 = 로그 레벨
+
+# 스프링부트 로깅 커스터마이징
+
+logback : logback-spring.xml
+log4j2 : log4j2-spring.xml
+JUL (비추) : logging.properties
+
+Logback extention
+- 프로파일 <springProfile name="프로파일">
+- Environment 프로퍼티 <springProperty>
+```
+
+```
+스프링부트 테스트
+
+
+```
+
