@@ -285,6 +285,50 @@ Logback extention
 ```
 스프링부트 테스트
 
+시작은 일단 spring-boot-starter-test를 추가!!
+
+@SpringBootTest
+- @RunWith(SpringRunner.class)랑 같이 써야 함. 
+- 빈 설정 파일은 설정을 안해주나? 알아서 찾습니다. (@SpringBootApplication)
+- webEnvironment
+    MOCK: mock servlet environment. 내장 톰캣 구동 안 함.
+    RANDON_PORT, DEFINED_PORT: 내장 톰캣 사용 함.
+    NONE: 서블릿 환경 제공 안 함.
+
+
+@MockBean
+- ApplicationContext에 들어있는 빈을 Mock으로 만든 객체로 교체 함.
+- 모든 @Test 마다 자동으로 리셋.
+
+슬라이스 테스트(위에애들은 SpringBootApplication을 다 끌고옴)
+- 레이어 별로 잘라서 테스트하고 싶을 때
+- @JsonTest
+- @WebMvcTest : Conttoller만 등록 가능
+- @WebFluxTest
+- @DataJpaTest 등
+
+테스트유틸
+- OutputCapture (유용)
+- TestPropertyValues
+- TestRestTemplate
+- ConfigFileApplicationContextInitializer
+```
+
+```
+Spring-Boot-Devtools (안쓸듯...)
+
+- 캐시 설정을 개발환경에 맞게 변경(아무 설정도 안하고 dependencies만 설정해도!)
+- classpath에 있는 파일이 변경 될 때 마다 자동으로 재시작
+    -> 수동 재시작보다 훨씬 빠름
+    -> 리로딩보다는 느리다
+- 라이브 리로르 : 리스타트 했을 때 브라우저 자동 리프레시 기능
+- 글로벌 설정
+    -> ~/spring-boot-devtools.properties
+```
+
+```
+# Spring Web MVC 1부
+
 
 ```
 

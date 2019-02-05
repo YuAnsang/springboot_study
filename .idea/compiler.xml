@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="com.github.as.third.main" target="1.8" />
       <module name="com.github.as.third.test" target="1.8" />
+      <module name="com.github.asyu.fifth.main" target="1.8" />
+      <module name="com.github.asyu.fifth.test" target="1.8" />
       <module name="com.github.asyu.fourth.main" target="1.8" />
       <module name="com.github.asyu.fourth.test" target="1.8" />
       <module name="second_main" target="1.8" />
