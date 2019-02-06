@@ -16,6 +16,16 @@
       <module name="com.github.asyu.seventh.test" target="1.8" />
       <module name="com.github.asyu.sixth.main" target="1.8" />
       <module name="com.github.asyu.sixth.test" target="1.8" />
+      <module name="com.github.asyu.springbootjdbc.main" target="1.8" />
+      <module name="com.github.asyu.springbootjdbc.test" target="1.8" />
+      <module name="com.github.asyu.springbootmonggo.main" target="1.8" />
+      <module name="com.github.asyu.springbootmonggo.test" target="1.8" />
+      <module name="com.github.asyu.springbootneo4j.main" target="1.8" />
+      <module name="com.github.asyu.springbootneo4j.test" target="1.8" />
+      <module name="com.github.asyu.springbootredis.main" target="1.8" />
+      <module name="com.github.asyu.springbootredis.test" target="1.8" />
+      <module name="com.github.asyu.springjpa.main" target="1.8" />
+      <module name="com.github.asyu.springjpa.test" target="1.8" />
       <module name="second_main" target="1.8" />
       <module name="second_test" target="1.8" />
     </bytecodeTargetLevel>

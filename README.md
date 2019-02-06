@@ -442,3 +442,210 @@ SOP와 CORS
 - @Controller나 @RequestMapping에 추가
 - @WebMvcConfigurer를 사용하여 글로벌 설정    
 ```
+
+```
+# 스프링 데이터 1부 (스프링 부트가 지원하는 스프링 데이터 기술)
+
+SQL DB
+- 인메모리 데이터베이스 지원
+- DataSource 설정
+- DBCP 설정
+- JDBC 사용하기
+- 스프링 데이터 JPA 사용하기
+- JOOQ 사용하기
+- 데이터베이스 초기화
+- 데이터베이스 마이그레이션 툴 연동하기
+
+NoSQL
+- Redis (key/value)
+- MongoDB (Document)
+- Neo4J (Graph)
+
+NoSQL (학습하지는 않음)
+- Gemfire (IMDG)
+- Solr (Search)
+- Elasticsearch (Search & Analytics)
+- Cassandra
+- Couchbase
+- LDAP
+- InfluxDB
+
+# 스프링 데이터 2부 (인메모리 데이터베이스)
+
+스프링부트가 지원하는 인메모리 데이터베이스
+- H2
+- HSQL
+- Derby
+
+Spring-jdbc가 클래스패스에 있으면 자동으로 빈 설정을 해줌
+- DataSource
+- JdbcTemplate
+
+인메모리 데이터베이스 기본 연결 정보 확인 방법
+- JdbcProperties 클래스에서 확인 가능
+- URL : "testdb"
+- username : "sa"
+- password : ""
+
+H2 콘솔 사용하는 방법
+- spring-boot-devtools 추가
+- spring.h2.console.enabled=true 추가
+- /h2-console로 접속
+
+# 스프링 데이터 3부 (MySQL)
+
+지원하는 DBCP
+1. HikariCP (기본)
+- https://github.com/brettwooldridge/HikariCP#frequently-used
+2. Tomcat CP
+3. Commons DBCP2
+
+DBCP 설정
+- spring.datasource.hikari.*
+- spring.datasource.tomcat.*
+- spring.datasource.db
+
+MySQL 커넥터 의존성 추가
+- implementation 'mysql:mysql-connector-java'
+
+MySQL 추가 (도커 사용)
+- docker run -p 3306:3306 -–name mysql_boot -e MYSQL_ROOT_PASSWORD=1 -e MYSQL_DATABASE=springboot -e MYSQL_USER=asyu -e MYSQL_PASSWORD=pass -d mysql
+- docker exec -i -t mysql_boot bash
+- mysql -u asyu -p
+
+# 스프링 데이터 4부 (PostgreSQL)
+
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=pass -e POSTGRES_USER=asyu -e POSTGRES_DB=springboot --name postgres_boot -d postgres
+
+docker exec -i -t postgres_boot bash
+
+su - postgres
+
+psql springboot
+
+데이터베이스 조회
+\list
+
+테이블 조회
+\dt
+
+쿼리
+SELECT * FROM account;
+
+# 스프링 데이터 5부 (스프링데이터 JPA 소개)
+
+ORM(Object Relational Mapping)과 JPA(Java Persistence API)
+- 객체와 릴레이션 매핑할 때 발생하는 개념적 불일치를 해결하는 프레임워크
+- JPA : ORM을 위한 자바 EE 표준
+
+스프링 데이터 JPA
+- @Repository
+- 쿼리 메서드 자동 구현
+- @EnableJpaRepositories (스프링부트가 자동으로 설정 해줌)
+- SDJ -> JPA -> Hibernate -> Datasource
+
+# 스프링 데이터 6부 (스프링데이터 JPA 연동)
+
+스프링데이터 JPA 의존성 추가
+- implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+스프링데이터 JPA 사용하기
+- @Entity
+- Repository 생성
+
+스프링데이터 리파지토리 테스트 만들기
+- 슬라이스 테스트를 위해선 만드시 인메모리 데이터베이스가 필요함(@DataJpaTest, H2 DB)
+
+# 스프링 데이터 7부 (데이터베이스 초기화)
+
+JPA를 사용한 데이터베이스 초기화
+- spring.jpa.hibernate.ddl-auto=update
+- spring.jpa.generate-ddl=true 설정해야 동작한다.
+
+SQL 스크립트를 사용한 데이터베이스 초기화
+- schema.sql 또는 schema-${platform}.sql
+- data.sql 또는 data-${platform}.sql
+- ${platform}값은 spring.datasource.platform으로 설정 가능
+
+# 스프링 데이터 8부 (데이터베이스 마이그레이션)
+
+의존성 추가
+- implementation 'org.flywaydb:flyway-core'
+
+마이그레이션 디렉토리
+- db/migration 또는 db/migration/{vendor}
+- spring.flyway.locations로 변경 가능
+
+마이그레이션 파일 이름
+- V숫자__이름.sql
+- V는 꼭 대문자로.
+- 숫자는 순차적으로 (타임스탬프 권장)
+- 숫자와 이름 사이에 언더바 두 개.
+- 이름은 가능한 서술적으로.
+
+# 스프링 데이터 9부 (Redis)
+
+캐시, 메시지 브로커, 키/밸류 스토어 등으로 사용 가능
+
+Redis 설치 및 실행 (도커 사용)
+- docker run -d -p 6379:6379 --name redis_boot redis
+- docker exec -it redisboot redis-cli
+
+스프링 데이터 Redis
+- https://projects.spring.io/spring-data-redis/
+- StringRedisTemplate 또는 RedisTemplate
+- extends CrudRepository
+
+Redis 주요 커맨드
+- https://redis.io/commands
+- keys *
+- get {key}
+- hgetall {key}
+- hget {key} {column}
+  
+커스터마이징
+- spring.redis.* (application.properties)
+
+# 스프링 데이터 10부 (MongoDB)
+
+MongoDB는 JSON 기반의 도큐먼트 데이터베이스(스키마가 없는 것이 특징)
+
+의존성 추가
+- implementation 'org.springframework.boot:spring-boot-starter-data-mongodb
+
+MongoDB 설치 및 실행 (도커 사용)
+- docker run -p 27017:27017 -d --name mongo_boot mongo
+- docker exec -it mongo_boot bash
+
+스프링 데이터 몽고DB
+- MongoTemplate, MongoRepository
+- 내장형 MongoDB (테스트용)
+    -> de.flapdoodle.embed:de.flapdoodle.embed.mongo
+- @DataMongoTest
+
+# 스프링 데이터 11부 (Neo4j)
+
+Neo4j는 노드간의 연관 관계를 영속화하는데 유리한 그래프 데이터베이스이다.
+
+의존성 추가
+- implementation 'org.springframework.boot:spring-boot-starter-data-neo4j'
+- 하위호환성이 없으니 조심 할 것
+
+Neo4j 설치 및 실행 (도커 사용)
+- docker run -d -p 7474:7474 -p 7687:7687 --name neo4j_boot neo4j
+- http://localhost:7474/browser
+
+스프링데이터 Neo4j
+- Neo4jTemplate (deprecated)
+- SessionFactory
+- Neo4jRepository
+
+# 스프링 데이터 12부 (스프링데이터 정리)
+- https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-sql
+```
+
+```
+# 스프링 시큐리티 1부 (Starter-Security)
+
+
+```

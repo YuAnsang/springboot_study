@@ -79,6 +79,60 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/springbootjdbc" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/springbootjdbc" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/springbootmonggo" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/springbootmonggo" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/springbootneo4j" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/springbootneo4j" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/springbootredis" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/springbootredis" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/springjpa" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/springjpa" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/third" />
         <option name="modules">
           <set>
