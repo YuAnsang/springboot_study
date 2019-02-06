@@ -4,10 +4,18 @@
     <bytecodeTargetLevel>
       <module name="com.github.as.third.main" target="1.8" />
       <module name="com.github.as.third.test" target="1.8" />
+      <module name="com.github.asyu.corstest.main" target="1.8" />
+      <module name="com.github.asyu.corstest.test" target="1.8" />
+      <module name="com.github.asyu.corstest2.main" target="1.8" />
+      <module name="com.github.asyu.corstest2.test" target="1.8" />
       <module name="com.github.asyu.fifth.main" target="1.8" />
       <module name="com.github.asyu.fifth.test" target="1.8" />
       <module name="com.github.asyu.fourth.main" target="1.8" />
       <module name="com.github.asyu.fourth.test" target="1.8" />
+      <module name="com.github.asyu.seventh.main" target="1.8" />
+      <module name="com.github.asyu.seventh.test" target="1.8" />
+      <module name="com.github.asyu.sixth.main" target="1.8" />
+      <module name="com.github.asyu.sixth.test" target="1.8" />
       <module name="second_main" target="1.8" />
       <module name="second_test" target="1.8" />
     </bytecodeTargetLevel>

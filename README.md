@@ -329,6 +329,116 @@ Spring-Boot-Devtools (안쓸듯...)
 ```
 # Spring Web MVC 1부
 
+스프링 부트 MVC
+- 자동 설정으로 제공하는 여러 기본 기능 (차후 학습)
 
+스프링 MVC 확장
+- @Configuration + WebMvcCOnfigurer
+
+스프링 MVC 재정의
+- @Configuration
+- @EnableWebMvc (해당 애너테이션을 선언하면 스프링부트 자동 설정은 적용 되지 않음)
+
+# Spring Web MVC 2부 (HttpMessageConverters)
+
+HttpMessageConverter
+- Spring framework에서 제공하는 interface (web mvc에서 사용)
+- 요청 본문을 객체로 매핑하거나 객체를 응답 본문으로 매핑하는데 사용됨
+- @RequestBody, @ResponseBody
+
+스프링 부트
+- 뷰 리졸버 설정 제공
+- HttpMessageConvertersAutoConfiguration
+
+# Spring Web MVC 3부 (ViewResolver)
+
+스프링 부트 ContentNegotiatingViewResolver 설정
+- 들어오는 요청의 accept header에 따라 응답이 달라짐
+
+# Spring Web MVC 4부 (정적 리소스 지원)
+
+정적 리소스 매핑(/**)
+- 기본 리소스 위치
+    -> classpath:/static
+    -> classpath:/public
+    -> classpath:/resources
+    -> classpath:/META-INF/resources
+    -> spring.mvc.static-path-pattern : 매핑 설정 변경 가능
+    -> spring.mvc.static-locations : 리소스 찾을 위치 변경 가능
+- Last-Modified 헤더를 보고 304 응답을 보냄. (캐싱)
+- ResourcesHttpRequestHandler로 커스터마이징 가능 (WebMvcConfigurer)
+    -> 리소스 핸들러를 추가하는 것(위의 기존 애들도 그대로 사용 가능)
+
+# Spring Web MVC 5부 (웹 JAR)
+
+- 부스스트랩, jQuery, vue.js 등 JAR 파일 형태로 추가 할 수 있음.
+- Webjar locator core 의존성을 추가하면 버전 명시를 안해도 된다.
+
+# Spring Web MVC 6부 (Index 페이지와 파비콘)
+
+웰컴페이지(루트 요청)
+- index.html을 찾아 보고 있으면 제공
+- index.템플릿을 찾아 보고 있으면 제공
+- 둘 다 없으면 에러페이지
+
+파비콘
+- favicon.ico
+- 파비콘 만들기 https://favicon.io/
+
+# Spring Web MVC 7부 (Thymeleaf)
+
+템플릿 엔진??
+- 주로 View를 만드는데 사용
+- Code generation, Email Template 등등
+
+스프링부트가 자동 설정을 지원하는 템플릿 엔진
+- FreeMaker
+- Groovy
+- Thymeleaf
+- Mustache
+
+JSP를 권장하지 않는 이유
+- JAR 패키징 할 때는 동작하지 않고, WAR 패키징 해야함.
+- Undertow는 JSP를 지원하지 않음.
+
+# Spring Web MVC 8부 (HtmlUnit)
+
+htmlUnit : html을 단위테스트 하기 위한 Tool
+
+# Spring Web MVC 9부 (ExceptionHandler)
+
+스프링 @MVC 예외 처리 방법
+- @ContollerAdvice
+- @ExchangepHandler
+
+스프링부트가 제공하는 기본 예외 처리기
+- BasicErrorController
+- 커스터마이징 방법 -> ErrorController 구현
+
+커스텀 에러 페이지
+- 상태 코드 값에 따라 에러페이지 보여주기
+- /src/main/resources/static(template)/error
+- 코드와 파일명을 맞춰야함(4xx, 5xx도 가능)
+- ErrorViewResolver 구현
+
+# Spring Web MVC 10부 (Spring HATEOAS)
+
+HATEOAS : Hypermedia As The Engine Of Application State
+
+서버 : 현재 리소스와 연관된 링크 정보를 클라이언트에게 제공한다.
+클라이언트 : 연관된 링크 정보를 바탕으로 리소스에 접근한다.
+
+# Spring Web MVC 11부 (CORS)
+
+SOP와 CORS
+- Single-Origin Policy
+- Cross-Origin Resource Sharing
+- Origin이란? 아래 세개를 조합 한 것!
+    -> URI 스키마 (http, https)
+    -> hostname
+    -> port
+    
+스프링 MVC @CrossOrigin
+- @Controller나 @RequestMapping에 추가
+- @WebMvcConfigurer를 사용하여 글로벌 설정    
 ```
-
