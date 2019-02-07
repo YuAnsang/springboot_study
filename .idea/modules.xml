@@ -35,6 +35,12 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootredis.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootredis.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootredis.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootredis.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootredis.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootredis.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity2.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity2.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity2.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity2.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springbootsecurity2.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springjpa.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springjpa.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springjpa.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springjpa.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.asyu.springjpa.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.asyu.springjpa.test.iml" />

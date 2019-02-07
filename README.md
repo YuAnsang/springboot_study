@@ -647,5 +647,33 @@ Neo4j 설치 및 실행 (도커 사용)
 ```
 # 스프링 시큐리티 1부 (Starter-Security)
 
+스프링 시큐리티
+- 웹 시큐리티
+- 메서드 시큐리티
+- 다양한 인증방법 지원
+    -> LDAP, 폼 인증, Basic 인증, OAuth 등...
 
+스프링부트 시큐리티 자동 설정
+- SecuriryAutoConfiguration
+- UserDetailsServiceAutoConfiguration
+- spring-boot-starter-securiry (스프링 시큐리티 5.* 의존성 추가)
+- 모든 요청에 인증 필요
+- 기본 사용자 생성
+    -> username : user
+    -> password : 어플리케이션 실행 때 마다 랜덤값 생성(콘솔 출력)
+    -> spring.securiry.user.name
+    -> spring.securiry.user.password
+- 인증 관련 각종 이벤트 발생
+    -> DefaultAuthenticationEventPublisher 빈 등록
+    -> 다양한 인증 에러 핸들러 등록 가능
+    
+# 스프링 시큐리티 2부 (시큐리티 설정 커스터마이징)
+
+웹 시큐리티 설정!
+
+UserDetailsServie 구현
+- https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#jc-authentication-userdetailsservice
+
+PasswordEncoder 설정 및 사용
+- https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#core-services-password-encoding
 ```
